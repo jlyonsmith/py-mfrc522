@@ -216,7 +216,7 @@ class MFRC522:
         while True:
             n = self.Read_MFRC522(self.CommIrqReg)
             i -= 1
-            if not ((i != 0) and not (n & 0x01) and not (n & waitIRq)):
+            if ~((i != 0) and ~(n & 0x01) and ~(n & waitIRq)):
                 break
 
         self.ClearBitMask(self.BitFramingReg, 0x80)

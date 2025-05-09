@@ -25,6 +25,10 @@ class SimpleMFRC522:
       id = self.read_id_no_block()
     return id
 
+  def read_version(self):
+    version = self.READER.Read_MFRC522(self.READER.VersionReg)
+    return version
+
   def read_id_no_block(self):
       (status, TagType) = self.READER.MFRC522_Request(self.READER.PICC_REQIDL)
       if status != self.READER.MI_OK:
